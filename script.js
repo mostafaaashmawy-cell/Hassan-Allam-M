@@ -1,6 +1,6 @@
 /**
  * Hassan Allam Properties Landing Page Script
- * Author: Properties-eg / Antigravity
+ * Author: Properties-egy / Antigravity
  * Date: 2026-08-10
  */
 
@@ -114,7 +114,6 @@ function initScrollReveal() {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    // Initial run to reveal elements already in view
     revealOnScroll();
 }
 
@@ -135,29 +134,48 @@ function initFormHandling() {
 
         // 1. Perform Validation
         const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
         const phoneInput = document.getElementById('phone');
-        const interestInput = document.getElementById('interest');
 
-        if (!nameInput.value.trim() || !emailInput.value.trim() || !phoneInput.value.trim() || !interestInput.value) {
+        if (!nameInput.value.trim() || !phoneInput.value.trim()) {
             alert('Please fill out all fields.');
             return;
         }
 
-        // Egyptian Mobile Number validation: should start with 10, 11, 12, or 15 and contain exactly 10 digits
-        // For example: 1003565002
-        const egPhoneRegex = /^1[0125][0-9]{8}$/;
-        const cleanPhone = phoneInput.value.trim().replace(/\s+/g, '');
+        // Clean spaces, hyphens, and parentheses from input
+        let cleanPhone = phoneInput.value.trim().replace(/[\s\-\(\)]/g, '');
+
+        // Normalize Egypt phone number formats to standard international: +201XXXXXXXXX
+        if (cleanPhone.startsWith('+20')) {
+            // Already formatted (e.g. +201003565002)
+        } else if (cleanPhone.startsWith('0020')) {
+            // Replace 0020 with +20
+            cleanPhone = '+' + cleanPhone.slice(2);
+        } else if (cleanPhone.startsWith('20')) {
+            // Prepend + (e.g. 201003565002)
+            cleanPhone = '+' + cleanPhone;
+        } else if (cleanPhone.startsWith('01')) {
+            // Local 11-digit number (e.g. 01003565002) -> replace leading 0 with +20
+            cleanPhone = '+20' + cleanPhone.slice(1);
+        } else if (cleanPhone.startsWith('1')) {
+            // Local 10-digit number without leading 0 (e.g. 1003565002) -> prepend +20
+            cleanPhone = '+20' + cleanPhone;
+        } else {
+            alert('Please enter a valid Egyptian mobile number (e.g., 01003565002)');
+            phoneInput.focus();
+            return;
+        }
+
+        // Validate final cleanPhone format: +201 + (0/1/2/5) + 8 digits
+        const egPhoneRegex = /^\+201[0125][0-9]{8}$/;
         if (!egPhoneRegex.test(cleanPhone)) {
-            alert('Please enter a valid Egyptian mobile number (10 digits starting with 10, 11, 12, or 15. E.g. 1003565002)');
+            alert('Please enter a valid Egyptian mobile number (e.g., 01003565002)');
             phoneInput.focus();
             return;
         }
 
         // 2. Prepare Data
         const formData = new FormData(leadForm);
-        // Include prefix in the submitted phone field for clarity in email
-        formData.set('phone', '+20' + cleanPhone);
+        formData.set('phone', cleanPhone); // Submit normalized international number
         
         const accessKeyInput = document.getElementById('web3forms-key');
         const accessKey = accessKeyInput ? accessKeyInput.value.trim() : '';
@@ -171,13 +189,10 @@ function initFormHandling() {
             console.log('%c[Lead Captured - Test Mode]', 'color: #c5a880; font-weight: bold; font-size: 14px;');
             console.log('Lead Details:', {
                 name: nameInput.value,
-                email: emailInput.value,
-                phone: '+20' + cleanPhone,
-                interest: interestInput.value
+                phone: cleanPhone
             });
-            console.log('To route this form submission to your Gmail live, please register a free access key at https://web3forms.com and paste it in index.html (line ~116).');
+            console.log('To route this form submission to your Gmail live, please register a free access key at https://web3forms.com and paste it in index.html (line ~92).');
             
-            // Simulate API request delay for mock experience
             setTimeout(() => {
                 resetFormState();
                 openModal();
@@ -196,7 +211,6 @@ function initFormHandling() {
             const result = await response.json();
 
             if (result.success) {
-                // Form submission successful
                 resetFormState();
                 openModal();
             } else {
@@ -211,7 +225,6 @@ function initFormHandling() {
         }
     });
 
-    // Helper functions
     function resetFormState() {
         leadForm.reset();
         resetSubmitButton();
@@ -222,18 +235,16 @@ function initFormHandling() {
         if (spinner) spinner.style.display = 'none';
     }
 
-    // Modal Controls
     function openModal() {
         successModal.classList.add('open');
-        document.body.style.overflow = 'hidden'; // Stop scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
         successModal.classList.remove('open');
-        document.body.style.overflow = 'auto'; // Enable scrolling
+        document.body.style.overflow = 'auto';
     }
 
-    // Expose close modal globally
     window.closeModal = closeModal;
 
     if (modalCloseBtn) {
