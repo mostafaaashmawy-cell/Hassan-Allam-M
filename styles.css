@@ -1153,6 +1153,70 @@ img {
 }
 
 /* ==========================================================================
+   Unit Types Grid Styling (The Valleys)
+   ========================================================================== */
+.unit-types-block {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.unit-types-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.type-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 18px 12px;
+    border-radius: 6px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-inset);
+}
+
+.type-card:hover {
+    border-color: var(--primary-gold);
+    background: var(--primary-gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), var(--shadow-inset);
+}
+
+.type-name {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-white);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.type-size {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary-gold);
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .types-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* ==========================================================================
    Legal Pages Styling
    ========================================================================== */
 .legal-page {
