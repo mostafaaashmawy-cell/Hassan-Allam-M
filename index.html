@@ -206,7 +206,18 @@
             <div class="container project-grid inverse">
                 <div class="project-gallery animate-reveal">
                     <div class="main-image-container">
-                        <img src="images/the-valleys-lawn.jpg" id="gallery-main-valleys" alt="The Valleys Luxury Villas" class="gallery-main-img">
+                        <img src="images/the-valleys-aerial.jpg" id="gallery-main-valleys" alt="The Valleys Luxury Villas" class="gallery-main-img">
+                        <div class="gallery-nav">
+                            <span class="gallery-indicator">1 / 2</span>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbs">
+                        <div class="thumb-item active" onclick="switchGallery('valleys', 'images/the-valleys-aerial.jpg', 1, this)">
+                            <img src="images/the-valleys-aerial.jpg" alt="The Valleys Aerial View thumb">
+                        </div>
+                        <div class="thumb-item" onclick="switchGallery('valleys', 'images/the-valleys-villa.jpg', 2, this)">
+                            <img src="images/the-valleys-villa.jpg" alt="The Valleys Standalone Villa thumb">
+                        </div>
                     </div>
                 </div>
                 
