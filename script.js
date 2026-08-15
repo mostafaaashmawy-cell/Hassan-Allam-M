@@ -142,41 +142,25 @@ function initFormHandling() {
             return;
         }
 
-        // Clean spaces, hyphens, and parentheses from input
-        let cleanPhone = phoneInput.value.trim().replace(/[\s\-\(\)]/g, '');
+        // Clean spaces, hyphens, parentheses, and dots from input
+        let cleanPhone = phoneInput.value.trim().replace(/[\s\-\(\)\.]/g, '');
 
-        // Normalize Egypt phone number formats to standard international: +201XXXXXXXXX
-        if (cleanPhone.startsWith('+20')) {
-            // Already formatted (e.g. +201003565002)
-        } else if (cleanPhone.startsWith('0020')) {
-            // Replace 0020 with +20
+        // Convert leading 00 to + format (e.g., 00966 -> +966)
+        if (cleanPhone.startsWith('00')) {
             cleanPhone = '+' + cleanPhone.slice(2);
-        } else if (cleanPhone.startsWith('20')) {
-            // Prepend + (e.g. 201003565002)
-            cleanPhone = '+' + cleanPhone;
-        } else if (cleanPhone.startsWith('01')) {
-            // Local 11-digit number (e.g. 01003565002) -> replace leading 0 with +20
-            cleanPhone = '+20' + cleanPhone.slice(1);
-        } else if (cleanPhone.startsWith('1')) {
-            // Local 10-digit number without leading 0 (e.g. 1003565002) -> prepend +20
-            cleanPhone = '+20' + cleanPhone;
-        } else {
-            alert('Please enter a valid Egyptian mobile number (e.g., 01003565002)');
-            phoneInput.focus();
-            return;
         }
 
-        // Validate final cleanPhone format: +201 + (0/1/2/5) + 8 digits
-        const egPhoneRegex = /^\+201[0125][0-9]{8}$/;
-        if (!egPhoneRegex.test(cleanPhone)) {
-            alert('Please enter a valid Egyptian mobile number (e.g., 01003565002)');
+        // Accept all valid phone numbers worldwide (7 to 16 digits, with or without +)
+        const globalPhoneRegex = /^\+?[0-9]{7,16}$/;
+        if (!globalPhoneRegex.test(cleanPhone)) {
+            alert('Please enter a valid phone number with country code (e.g. +201003565002, +966501234567)');
             phoneInput.focus();
             return;
         }
 
         // 2. Prepare Data
         const formData = new FormData(leadForm);
-        formData.set('phone', cleanPhone); // Submit normalized international number
+        formData.set('phone', cleanPhone); // Submit cleaned international number
         
         const accessKeyInput = document.getElementById('web3forms-key');
         const accessKey = accessKeyInput ? accessKeyInput.value.trim() : '';
