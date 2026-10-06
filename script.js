@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollReveal();
     initFormHandling();
-    initConversionTracking();
 });
 
 /* ==========================================================================
@@ -181,7 +180,6 @@ function initFormHandling() {
             setTimeout(() => {
                 resetFormState();
                 openModal();
-                triggerGoogleConversion();
             }, 1200);
             
             return;
@@ -199,7 +197,6 @@ function initFormHandling() {
             if (result.success) {
                 resetFormState();
                 openModal();
-                triggerGoogleConversion();
             } else {
                 console.error('Web3Forms Error:', result);
                 alert('Submission failed: ' + (result.message || 'Unknown error occurred. Please try again.'));
@@ -245,36 +242,4 @@ function initFormHandling() {
             }
         });
     }
-}
-
-/* ==========================================================================
-   Google Ads Conversion Tracking (WhatsApp Clicks & Form Submissions)
-   ========================================================================== */
-function triggerGoogleConversion(url) {
-    if (typeof gtag_report_conversion === 'function') {
-        gtag_report_conversion(url);
-    } else if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18387364928/gwUlCPf3iuIcEMDY479E',
-            'value': 1.0,
-            'currency': 'EGP',
-            'event_callback': function () {
-                if (typeof url !== 'undefined' && url) {
-                    window.location = url;
-                }
-            }
-        });
-    } else if (typeof url !== 'undefined' && url) {
-        window.location = url;
-    }
-}
-
-function initConversionTracking() {
-    // Attach conversion tracking to all WhatsApp links across the page
-    const waLinks = document.querySelectorAll('a[href*="wa.me"]');
-    waLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            triggerGoogleConversion();
-        });
-    });
 }
