@@ -346,17 +346,7 @@ img {
 }
 
 .hero-content {
-    max-width: 680px;
-    position: relative;
-    padding: 42px 45px;
-    border-radius: 16px;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(7, 9, 14, 0.88) 0%, rgba(12, 15, 23, 0.76) 50%, rgba(7, 9, 14, 0.92) 100%), 
-                url('images/grova-hero-event.jpg') center 18% / cover no-repeat;
-    border: 1px solid rgba(197, 168, 128, 0.3);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    max-width: 650px;
 }
 
 .hero-subtitle {
@@ -366,7 +356,6 @@ img {
     font-weight: 600;
     display: inline-block;
     margin-bottom: 20px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .hero-title {
@@ -376,24 +365,20 @@ img {
     line-height: 1.15;
     color: var(--text-white);
     margin-bottom: 25px;
-    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
 }
 
 .hero-description {
     font-size: 1.05rem;
     color: var(--text-light);
-    opacity: 0.95;
-    margin-bottom: 35px;
+    opacity: 0.9;
+    margin-bottom: 40px;
     max-width: 580px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* Hero USP Badges */
 .hero-usp-row {
     display: flex;
     gap: 40px;
-    border-top: 1px solid rgba(197, 168, 128, 0.2);
-    padding-top: 25px;
 }
 
 .hero-usp-item {
@@ -856,6 +841,68 @@ img {
 .thumb-item.active {
     opacity: 1;
     border-color: var(--primary-gold);
+}
+
+/* ==========================================================================
+   Grova VIP Event Feature
+   ========================================================================== */
+.grova-vip-feature {
+    margin-top: 60px;
+    padding-top: 45px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.grova-vip-header {
+    margin-bottom: 25px;
+}
+
+.grova-vip-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary-gold);
+    background: var(--primary-gold-light);
+    border: 1px solid var(--primary-gold-muted);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.grova-vip-title {
+    font-family: var(--font-heading);
+    font-size: 2.3rem;
+    font-weight: 500;
+    color: var(--text-white);
+    letter-spacing: 0.02em;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.25;
+}
+
+.grova-vip-image-wrapper {
+    max-width: 540px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 168, 128, 0.35);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(197, 168, 128, 0.12);
+    transition: var(--transition-smooth);
+}
+
+.grova-vip-image-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 28px 55px rgba(0, 0, 0, 0.7), 0 0 50px rgba(197, 168, 128, 0.25);
+    border-color: var(--primary-gold);
+}
+
+.grova-vip-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 /* ==========================================================================
@@ -1526,12 +1573,6 @@ img {
         transform: translateY(-7px) rotate(-45deg);
     }
     
-    .hero-content {
-        padding: 30px 20px;
-        border-radius: 14px;
-        background-position: center 12%;
-    }
-    
     .hero-title {
         font-size: 2.3rem;
     }
@@ -1558,6 +1599,15 @@ img {
     
     .section-header h2 {
         font-size: 2.2rem;
+    }
+    
+    .grova-vip-title {
+        font-size: 1.7rem;
+        padding: 0 10px;
+    }
+    
+    .grova-vip-image-wrapper {
+        max-width: 100%;
     }
     
     .floating-wa {

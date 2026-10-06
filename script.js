@@ -1,6 +1,6 @@
 /**
  * Hassan Allam Properties Landing Page Script
- * Author: Properties-egy / Antigravity
+ * Author: Properties-m / Antigravity
  * Date: 2026-08-10
  */
 
