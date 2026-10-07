@@ -11,6 +11,28 @@
       gtag('config', 'AW-18495474156');
     </script>
 
+    <!-- Event snippet for hassan allam mohanad conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18495474156/EvjICOTemJQdEOyTqvNE',
+            'value': 1.0,
+            'currency': 'EGP',
+            'event_callback': callback
+        });
+      } else if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+      return false;
+    }
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms & Conditions — Hassan Allam Properties | by Properties-m</title>
