@@ -151,6 +151,41 @@ img {
 }
 
 /* ==========================================================================
+   Google Ads Compliance Top Disclosure Bar
+   ========================================================================== */
+.compliance-top-bar {
+    background: rgba(10, 13, 20, 0.98);
+    border-bottom: 1px solid rgba(197, 168, 128, 0.25);
+    color: #9ca3af;
+    font-size: 0.72rem;
+    padding: 6px 0;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    width: 100%;
+}
+
+.compliance-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.compliance-bar-inner strong {
+    color: var(--primary-gold);
+    letter-spacing: 0.04em;
+}
+
+.compliance-contact a {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+/* ==========================================================================
    Navbar Styles
    ========================================================================== */
 .navbar {
@@ -159,18 +194,18 @@ img {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(7, 9, 14, 0.7);
+    background: rgba(7, 9, 14, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     transition: var(--transition-smooth);
-    padding: 20px 0;
+    padding: 0 0 14px 0;
 }
 
 .navbar.scrolled {
-    padding: 12px 0;
-    background: rgba(7, 9, 14, 0.95);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 0 0 10px 0;
+    background: rgba(7, 9, 14, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .nav-container {
@@ -180,6 +215,7 @@ img {
     width: 90%;
     max-width: 1300px;
     margin: 0 auto;
+    padding-top: 10px;
 }
 
 /* Logo Design */
@@ -588,13 +624,50 @@ img {
     to { transform: rotate(360deg); }
 }
 
+.form-consent {
+    margin: 14px 0 6px;
+    text-align: left;
+}
+
+.consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 0.74rem;
+    color: var(--text-light);
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+.consent-label input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--primary-gold);
+    min-width: 15px;
+    min-height: 15px;
+    cursor: pointer;
+}
+
+.consent-label a {
+    color: var(--primary-gold);
+    text-decoration: underline;
+}
+
 .form-disclaimer {
     font-size: 0.68rem;
     color: var(--text-muted);
     line-height: 1.5;
     text-align: center;
-    margin-top: 20px;
-    opacity: 0.8;
+    margin-top: 15px;
+    opacity: 0.85;
+}
+
+.promo-disclaimer-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    line-height: 1.5;
+    font-style: italic;
+    opacity: 0.85;
 }
 
 .form-footer-links {
@@ -1211,12 +1284,37 @@ img {
     color: var(--text-white);
 }
 
+.footer-business-block {
+    background: rgba(18, 23, 35, 0.6);
+    border: 1px solid rgba(197, 168, 128, 0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    width: 100%;
+}
+
+.footer-business-block p {
+    margin-bottom: 6px;
+}
+
+.footer-business-block p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-business-block a {
+    color: var(--primary-gold);
+    text-decoration: underline;
+}
+
 .footer-disclaimer {
     font-size: 0.75rem;
     color: var(--text-muted);
     line-height: 1.7;
-    margin-bottom: 35px;
-    opacity: 0.7;
+    margin-bottom: 30px;
+    opacity: 0.85;
 }
 
 .footer-links {
@@ -1694,12 +1792,21 @@ img {
 
 /* Mobile Devices */
 @media (max-width: 768px) {
+    .compliance-top-bar {
+        font-size: 0.64rem;
+        padding: 5px 0;
+    }
+    
+    .compliance-contact {
+        display: none;
+    }
+
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 88px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 88px);
         background: rgba(7, 9, 14, 0.98);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);

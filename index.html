@@ -51,11 +51,19 @@
 
     <!-- Header / Navbar -->
     <header class="navbar" id="navbar">
+        <!-- Google Ads Compliance Notice / Advertiser Disclosure Bar -->
+        <div class="compliance-top-bar">
+            <div class="compliance-bar-inner">
+                <span><strong>ADVERTISER DISCLOSURE:</strong> Properties-M is an independent authorized real estate brokerage in Egypt. This landing page is not the official corporate website of Hassan Allam Properties.</span>
+                <span class="compliance-contact">Advisory Hotline: <a href="tel:+201003565002">+20 100 356 5002</a></span>
+            </div>
+        </div>
+
         <div class="nav-container">
-            <a href="#" class="brand-logo">
+            <a href="../" class="brand-logo" title="Properties-m Real Estate">
                 <span class="logo-main">HASSAN ALLAM</span>
                 <span class="logo-sub">PROPERTIES</span>
-                <span class="logo-badge">by Properties-m</span>
+                <span class="logo-badge">by Properties-m • Authorized Broker</span>
             </a>
             
             <nav class="nav-menu" id="nav-menu">
@@ -113,6 +121,7 @@
                             <span class="usp-lbl">Installments</span>
                         </div>
                     </div>
+                    <p class="promo-disclaimer-note">*Prices (apartments starting from 9M EGP, villas from 26M EGP), promotional 40% discount, and 5–10 year payment schemes are developer-provided offers by Hassan Allam Properties, subject to unit availability and contract terms.</p>
                 </div>
 
                 <!-- Registration Card -->
@@ -120,7 +129,7 @@
                     <div class="register-card">
                         <div class="card-header">
                             <h3>Register Your Interest</h3>
-                            <p>Submit your details to secure prime units and receive tailored payment plans</p>
+                            <p>Submit your details to receive official brochures, floor plans, and tailored Hassan Allam payment plans from Properties-M senior advisors.</p>
                         </div>
                         
                         <!-- 
@@ -136,18 +145,26 @@
                             <input type="checkbox" name="botcheck" style="display: none;">
                             
                             <div class="form-group">
-                                <label for="name">Full Name</label>
+                                <label for="name">Full Name *</label>
                                 <div class="input-wrapper">
                                     <input type="text" id="name" name="name" placeholder="John Doe" required>
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label for="phone">Phone / WhatsApp</label>
+                                <label for="phone">Phone / WhatsApp (with Country Code) *</label>
                                 <div class="input-wrapper">
                                     <input type="tel" id="phone" name="phone" placeholder="+20 100 356 5002" required>
                                 </div>
                                 <span class="form-hint">Enter your phone number with country code (e.g. +201003565002, +966501234567)</span>
+                            </div>
+
+                            <!-- Explicit User Consent Checkbox (Google Ads Compliance) -->
+                            <div class="form-consent">
+                                <label class="consent-label" for="consent-check">
+                                    <input type="checkbox" id="consent-check" name="consent" checked required>
+                                    <span>I consent to Properties-M contacting me via Phone/WhatsApp regarding Hassan Allam property updates as detailed in the <a href="privacy.html" target="_blank">Privacy Policy</a>.</span>
+                                </label>
                             </div>
 
                             <button type="submit" class="submit-btn" id="submit-btn">
@@ -157,12 +174,12 @@
                         </form>
                         
                         <p class="form-disclaimer">
-                            By submitting, you agree to receive communications from Properties-m regarding real estate projects. This landing page is operated by Properties-m, an independent real estate consultancy, and is not the official website of the developer. Prices and availability are subject to change.
+                            <strong>Privacy Notice:</strong> By submitting, you agree to receive direct communications from Properties-M (independent authorized brokerage) regarding Hassan Allam Properties. We strictly do not sell, rent, or trade your personal data. Official unit pricing and availability are determined solely by Hassan Allam Properties.
                         </p>
                         <div class="form-footer-links">
-                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="privacy.html" target="_blank">Privacy Policy</a>
                             <span class="separator">•</span>
-                            <a href="terms.html">Terms & Conditions</a>
+                            <a href="terms.html" target="_blank">Terms & Conditions</a>
                         </div>
                     </div>
                 </div>
@@ -480,20 +497,30 @@
             <div class="footer-brand">
                 <span class="logo-main text-white">HASSAN ALLAM</span>
                 <span class="logo-sub text-gold">PROPERTIES</span>
+                <span class="logo-badge">by Properties-m • Authorized Broker</span>
+            </div>
+
+            <!-- Mandatory Google Ads Business Transparency Block -->
+            <div class="footer-business-block">
+                <p><strong>Properties-M Real Estate Advisory</strong> • Registered Real Estate Brokerage & Consultancy</p>
+                <p>New Cairo, Fifth Settlement, Cairo, Egypt • Commercial Advisory Hotline: <a href="tel:+201003565002">+20 100 356 5002</a></p>
+                <p>Direct Inquiries & WhatsApp: <a href="https://wa.me/201003565002" target="_blank">+20 100 356 5002</a> • Email: <a href="mailto:advisory@properties-m.com">advisory@properties-m.com</a></p>
             </div>
             
             <p class="footer-disclaimer">
-                This landing page is operated by Properties-m, an independent real estate consultancy, and is not the official website of Hassan Allam Properties. All brand names, developer information, and logos are property of their respective owners.
+                <strong>Legal Disclaimer:</strong> This landing page is operated by Properties-M Real Estate Advisory, an independent real estate consultancy and licensed channel partner in Egypt. This is not the official corporate website of Hassan Allam Properties or Hassan Allam Holding. All brand names, developer information, and logos are property of their respective owners. Project details, launch prices (starting from 9M EGP for apartments, 26M EGP for villas), promotional 40% discount, and payment plans (5% down, up to 10 years) are subject to developer terms, unit availability, and change without prior notice.
             </p>
             
             <div class="footer-links">
                 <a href="privacy.html" id="link-privacy">Privacy Policy</a>
                 <span class="separator">|</span>
                 <a href="terms.html" id="link-terms">Terms & Conditions</a>
+                <span class="separator">|</span>
+                <a href="../" id="link-parent">Properties-M Home</a>
             </div>
             
             <p class="footer-copyright">
-                &copy; <span id="current-year">2026</span> Properties-m — STRATEGIC PARTNERS. All rights reserved.
+                &copy; <span id="current-year">2026</span> Properties-M Real Estate Advisory. All rights reserved.
             </p>
         </div>
     </footer>
